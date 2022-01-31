@@ -15,7 +15,7 @@ public abstract class Personagem {
     //protected TipoDeRaca tipoDeRaca;
     protected TipoDeAtaque tipoDeAtaque;
     protected TipoDeMagia tipoDeMagia;
-    protected static Random random;
+    protected Random random;
 
 
     public Personagem() {
@@ -45,6 +45,8 @@ public abstract class Personagem {
                 if(this.tipoDeMagia != null){
                     int valorAtaque = random.nextInt(20)+1;
 
+                    System.out.println(this + " atacando " + alvo + "\nJogada de Ataque: " + valorAtaque);
+
                     if (valorAtaque >= alvo.classeDeArmadura) {
 
                         this.tipoDeMagia.lancarMagia(this, alvo);
@@ -55,6 +57,8 @@ public abstract class Personagem {
                 int valorAtaque = random.nextInt(20)+1;
 
                 if (valorAtaque >= alvo.classeDeArmadura) {
+
+                    System.out.println(this + " atacando " + alvo + "\nJogada de Ataque: " + valorAtaque);
 
                     this.tipoDeAtaque.atacar(this, alvo);
                 }
@@ -91,5 +95,9 @@ public abstract class Personagem {
 
     public String getNome() {
         return nome;
+    }
+
+    public int getClasseDeArmadura() {
+        return classeDeArmadura;
     }
 }

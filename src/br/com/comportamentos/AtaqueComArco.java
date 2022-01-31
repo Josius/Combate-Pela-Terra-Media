@@ -3,12 +3,11 @@ package br.com.comportamentos;
 import br.com.interfaces.TipoDeAtaque;
 import br.com.personagens.Personagem;
 
-public class AtaqueComArco implements TipoDeAtaque {
-
-    private int pontosDeDano;
-
-    public AtaqueComArco(int pontosDeDano) {
-        this.pontosDeDano = pontosDeDano;
+public class AtaqueComArco extends Comportamento implements TipoDeAtaque {
+    
+    public AtaqueComArco(int dano) {
+        this.dano = dano;
+        this.nome = "Disparo de Flecha";
     }
 
     @Override
@@ -18,8 +17,8 @@ public class AtaqueComArco implements TipoDeAtaque {
 
     private void revoadaDeFlechas(Personagem ativo, Personagem passivo){
         for(int i=0; i <= 2; i++){
-
-            passivo.receberDano(pontosDeDano);
+            expressarDano(ativo, passivo);
+            passivo.receberDano(dano);
 
         }
     }

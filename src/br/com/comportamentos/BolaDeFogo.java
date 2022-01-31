@@ -5,19 +5,25 @@ import br.com.personagens.Personagem;
 
 import java.util.Random;
 
-public class BolaDeFogo implements TipoDeMagia {
+public class BolaDeFogo extends Comportamento implements TipoDeMagia {
 
     private static Random random;
+    private int quantidadeDeBolasDeFogo;
 
     public BolaDeFogo() {
+        this.nome = "Bola de Fogo";
         random = new Random();
     }
 
     @Override
     public void lancarMagia(Personagem ativo, Personagem passivo) {
-        int quantidadeDeBolasDeFogo = random.nextInt(6)+1;
+        quantidadeDeBolasDeFogo = random.nextInt(6)+1;
+        dano = MULTIPLICADOR * quantidadeDeBolasDeFogo;
 
-        passivo.receberDano(quantidadeDeBolasDeFogo*6);
+        expressarDanoMagico(ativo, passivo);
+        passivo.receberDano(dano);
 
     }
+
+
 }

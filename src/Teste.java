@@ -14,7 +14,23 @@ public class Teste {
         personagens.add(sauron);
 
         //Combate contra Sauron
+
+        estatisticas(personagens);
+
         combateContraSauron(personagens, sauron);
+
+        estatisticas(personagens);
+
+    }
+
+    public static void estatisticas(List<Personagem> personagens){
+        System.out.println("=====================================");
+        for(Personagem personagem : personagens){
+            System.out.println("Personagem " + personagem.getNome());
+            System.out.println("PVs: " + personagem.getPontosDeVida() +
+                    " - Classe de Armadura: " + personagem.getClasseDeArmadura());
+        }
+        System.out.println("=====================================");
     }
 
     public static void combateContraSauron(List<Personagem> personagens, Personagem sauron){
@@ -50,7 +66,9 @@ public class Teste {
             personagens.remove(personagem);
             
             if(person.getNome().equals("Sauron, o senhor de Mordor")){
+                System.out.println("****************************************************************");
                 System.out.println("Sauron foi derrotado! A Terra Media agora pode descansar em paz.");
+                System.out.println("****************************************************************");
                 return true;
             }
         }
@@ -60,7 +78,9 @@ public class Teste {
     public static boolean verificarHerois(List<Personagem> personagens){
         if((personagens.size() == 1) && (personagens.get(0).getNome().equals("Sauron, o senhor de Mordor"))){
 
+            System.out.println("********************************************************************");
             System.out.println("O Senhor de Mordor eh vitorioso. A Terra Media sofrera sob seu jugo!");
+            System.out.println("********************************************************************");
             return true;
         }
         return false;
