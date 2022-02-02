@@ -1,9 +1,9 @@
-package br.com.personagens;
+package personagens;
 
-import br.com.comportamentos.AtaqueSimples;
-import br.com.comportamentos.BolaDeFogo;
-import br.com.comportamentos.Relampago;
-import br.com.enums.Tendencia;
+import comportamentos.AtaqueSimples;
+import comportamentos.BolaDeFogo;
+import comportamentos.Relampago;
+import enums.Tendencia;
 
 public class Sauron extends Personagem{
 

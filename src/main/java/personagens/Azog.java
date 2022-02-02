@@ -1,7 +1,7 @@
-package br.com.personagens;
+package personagens;
 
-import br.com.comportamentos.AtaqueSimples;
-import br.com.enums.Tendencia;
+import comportamentos.AtaqueSimples;
+import enums.Tendencia;
 
 public class Azog extends Personagem{
 

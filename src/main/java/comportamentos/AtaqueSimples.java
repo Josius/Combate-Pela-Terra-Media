@@ -1,7 +1,7 @@
-package br.com.comportamentos;
+package comportamentos;
 
-import br.com.interfaces.TipoDeAtaque;
-import br.com.personagens.Personagem;
+import interfaces.TipoDeAtaque;
+import personagens.Personagem;
 
 public class AtaqueSimples extends Comportamento implements TipoDeAtaque {
 

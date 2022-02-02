@@ -1,8 +1,8 @@
-package br.com.personagens;
+package personagens;
 
-import br.com.enums.Tendencia;
-import br.com.interfaces.TipoDeAtaque;
-import br.com.interfaces.TipoDeMagia;
+import enums.Tendencia;
+import interfaces.TipoDeAtaque;
+import interfaces.TipoDeMagia;
 
 import java.util.Random;
 
@@ -19,8 +19,8 @@ public abstract class Personagem {
 
 
     public Personagem() {
-//        this.tipoDeClasse = null;
-//        this.tipoDeRaca = null;
+        //        this.tipoDeClasse = null;
+        //        this.tipoDeRaca = null;
         this.tipoDeAtaque = null;
         random = new Random();
     }

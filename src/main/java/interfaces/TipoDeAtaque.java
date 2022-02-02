@@ -1,8 +1,7 @@
-package br.com.interfaces;
+package interfaces;
 
-import br.com.personagens.Personagem;
+import personagens.Personagem;
 
 public interface TipoDeAtaque {
-
     void atacar(Personagem ativo, Personagem passivo);
 }

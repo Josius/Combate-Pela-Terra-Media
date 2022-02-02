@@ -1,31 +1,24 @@
-import br.com.enums.Tendencia;
-import br.com.personagens.*;
+import personagens.Personagem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Teste {
-    public static void main(String[] args) {
-        Personagem sauron = new Sauron();
-        List<Personagem> personagens = new ArrayList<>();
-        personagens.add(new Aragorn());
-        personagens.add(new Gandalf());
-        personagens.add(new Legolas());
-        personagens.add(sauron);
+public class Batalha {
 
-        //Combate contra Sauron
+    private List<Personagem> personagens;
+    private Personagem sauron;
 
-        estatisticas(personagens);
-
-        combateContraSauron(personagens, sauron);
-
-        estatisticas(personagens);
-
+    public Batalha(List<Personagem> personagens, Personagem sauron) {
+        this.personagens = new ArrayList<>();
+        this.sauron = sauron;
+        this.personagens.addAll(personagens);
     }
 
-    public static void estatisticas(List<Personagem> personagens){
+
+
+    public void estatisticas(){
         System.out.println("=====================================");
-        for(Personagem personagem : personagens){
+        for(Personagem personagem : this.personagens){
             System.out.println("Personagem " + personagem.getNome());
             System.out.println("PVs: " + personagem.getPontosDeVida() +
                     " - Classe de Armadura: " + personagem.getClasseDeArmadura());
@@ -33,7 +26,7 @@ public class Teste {
         System.out.println("=====================================");
     }
 
-    public static void combateContraSauron(List<Personagem> personagens, Personagem sauron){
+    public void combateContraSauron(){
         boolean flag = false;
         Personagem ativo, passivo;
 
@@ -60,11 +53,11 @@ public class Teste {
         }
     }
 
-    public static boolean removerPersonagem(Personagem personagem, List<Personagem> personagens){
+    private boolean removerPersonagem(Personagem personagem, List<Personagem> personagens){
         Personagem person = personagem;
         if(personagem.getPontosDeVida() <= 0){
             personagens.remove(personagem);
-            
+
             if(person.getNome().equals("Sauron, o senhor de Mordor")){
                 System.out.println("****************************************************************");
                 System.out.println("Sauron foi derrotado! A Terra Media agora pode descansar em paz.");
@@ -75,7 +68,7 @@ public class Teste {
         return false;
     }
 
-    public static boolean verificarHerois(List<Personagem> personagens){
+    private boolean verificarHerois(List<Personagem> personagens){
         if((personagens.size() == 1) && (personagens.get(0).getNome().equals("Sauron, o senhor de Mordor"))){
 
             System.out.println("********************************************************************");
@@ -86,7 +79,7 @@ public class Teste {
         return false;
     }
 
-    public static boolean verificaSauron(List<Personagem> personagens, int posicao){
+    private boolean verificaSauron(List<Personagem> personagens, int posicao){
         if(personagens.get(posicao).getPontosDeVida() <= 0){
             System.out.println("Sauron foi derrotado! A Terra Media agora pode descansar em paz.");
             return true;

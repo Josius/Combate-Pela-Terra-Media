@@ -1,10 +1,10 @@
-package br.com.comportamentos;
+package comportamentos;
 
-import br.com.interfaces.TipoDeAtaque;
-import br.com.personagens.Personagem;
+import interfaces.TipoDeAtaque;
+import personagens.Personagem;
 
 public class AtaqueComArco extends Comportamento implements TipoDeAtaque {
-    
+
     public AtaqueComArco(int dano) {
         this.dano = dano;
         this.nome = "Disparo de Flecha";

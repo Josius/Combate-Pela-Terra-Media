@@ -1,6 +1,8 @@
-package br.com.comportamentos;
+package comportamentos;
 
-import br.com.personagens.Personagem;
+import interfaces.TipoDeAtaque;
+import interfaces.TipoDeMagia;
+import personagens.Personagem;
 
 public abstract class Comportamento {
     protected static final int MULTIPLICADOR = 6;

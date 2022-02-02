@@ -1,7 +1,7 @@
-package br.com.personagens;
+package personagens;
 
-import br.com.comportamentos.AtaqueComArco;
-import br.com.enums.Tendencia;
+import comportamentos.AtaqueComArco;
+import enums.Tendencia;
 
 public class Legolas extends Personagem{
 

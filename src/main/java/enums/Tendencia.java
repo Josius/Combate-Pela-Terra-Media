@@ -1,4 +1,4 @@
-package br.com.enums;
+package enums;
 
 public enum Tendencia {
     HEROI, VILAO;

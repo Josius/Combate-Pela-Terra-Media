@@ -1,7 +1,7 @@
-package br.com.personagens;
+package personagens;
 
-import br.com.comportamentos.Relampago;
-import br.com.enums.Tendencia;
+import comportamentos.Relampago;
+import enums.Tendencia;
 
 public class Saruman extends Personagem{
 

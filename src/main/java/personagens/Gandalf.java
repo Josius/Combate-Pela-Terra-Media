@@ -1,7 +1,7 @@
-package br.com.personagens;
+package personagens;
 
-import br.com.comportamentos.BolaDeFogo;
-import br.com.enums.Tendencia;
+import comportamentos.BolaDeFogo;
+import enums.Tendencia;
 
 public class Gandalf extends Personagem{
 

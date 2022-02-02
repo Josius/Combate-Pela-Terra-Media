@@ -1,7 +1,7 @@
-package br.com.comportamentos;
+package comportamentos;
 
-import br.com.interfaces.TipoDeMagia;
-import br.com.personagens.Personagem;
+import interfaces.TipoDeMagia;
+import personagens.Personagem;
 
 import java.util.Random;
 
