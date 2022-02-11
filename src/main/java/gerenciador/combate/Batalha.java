@@ -1,20 +1,43 @@
+package gerenciador.combate;
+
 import personagens.Personagem;
 
+import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Batalha {
-
+    //talvez, transformar as duas listas abaixo em um map
     private List<Personagem> personagens;
+    private List<Personagem> viloes;
     private Personagem sauron;
+    private Dados dados;
+    private int rolagemAtaque;
 
+    public Batalha(List<Personagem> personagens, List<Personagem> viloes) {
+        this.personagens = new ArrayList<>();
+        this.viloes = new ArrayList<>();
+        this.personagens.addAll(personagens);
+        this.viloes.addAll(viloes);
+        this.dados = Dados.getDados();
+    }
     public Batalha(List<Personagem> personagens, Personagem sauron) {
         this.personagens = new ArrayList<>();
-        this.sauron = sauron;
         this.personagens.addAll(personagens);
+        this.sauron = sauron;
+        this.dados = Dados.getDados();
     }
 
+    public boolean verificaResultadoAtaque(Personagem ativo, Personagem passivo){
+        rolagemAtaque = dados.rolarD20() + ativo.getBonusAtaque();
+//        System.out.println(rolagemAtaque);
+//        System.out.println(passivo.getClasseDeArmadura());
+        return rolagemAtaque >= passivo.getClasseDeArmadura();
+    }
 
+    public boolean verificarTendencia(Personagem ativo, Personagem passivo){
+        return ativo.getTendencia().equals(passivo.getTendencia());
+    }
 
     public void estatisticas(){
         System.out.println("=====================================");
@@ -25,7 +48,7 @@ public class Batalha {
         }
         System.out.println("=====================================");
     }
-
+/*
     public void combateContraSauron(){
         boolean flag = false;
         Personagem ativo, passivo;
@@ -34,6 +57,8 @@ public class Batalha {
 
             ativo = personagens.get((int)(Math.random() * personagens.size()));
             passivo = personagens.get((int)(Math.random() * personagens.size()));
+            if(!verificarTendencia(ativo, passivo)) continue;
+            if(verificaResultadoAtaque(ativo, passivo)) continue;
             ativo.executarAtaque(passivo);
 
             boolean rmPerson = removerPersonagem(passivo, personagens);
@@ -86,4 +111,7 @@ public class Batalha {
         }
         return false;
     }
+*/
+
+
 }

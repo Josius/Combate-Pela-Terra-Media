@@ -1,16 +1,19 @@
 package personagens;
 
-import comportamentos.AtaqueSimples;
+import acoes.AtaqueSimples;
+import categoria.armas.EspadaCurta;
 import enums.Tendencia;
 
 public class Azog extends Personagem{
 
     public Azog() {
-        this.pontosDeVida = 30;
-        this.classeDeArmadura = 13;
         this.nome = "Azog";
+        this.arma = new EspadaCurta();
+        this.pontosDeVida = 30;
+        this.classeDeArmadura = 15;
         this.tendencia = Tendencia.VILAO;
-        setTipoDeAtaque(new AtaqueSimples(8));
+        this.bonusAtaque = 2;
+        setTipoDeAtaque(new AtaqueSimples());
     }
 
 }

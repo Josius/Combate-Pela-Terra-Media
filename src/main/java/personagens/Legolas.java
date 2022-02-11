@@ -1,15 +1,18 @@
 package personagens;
 
-import comportamentos.AtaqueComArco;
+import acoes.AtaqueSimples;
+import categoria.armas.ArcoCurto;
 import enums.Tendencia;
 
 public class Legolas extends Personagem{
 
     public Legolas() {
+        this.nome = "Legolas";
+        this.arma = new ArcoCurto();
         this.pontosDeVida = 60;
         this.classeDeArmadura = 13;
-        this.nome = "Legolas";
         this.tendencia = Tendencia.HEROI;
-        setTipoDeAtaque(new AtaqueComArco(6));
+        this.bonusAtaque = 2;
+        setTipoDeAtaque(new AtaqueSimples());
     }
 }

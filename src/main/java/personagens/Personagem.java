@@ -1,103 +1,84 @@
 package personagens;
 
+import categoria.armas.Arma;
+import categoria.magias.Magia;
 import enums.Tendencia;
-import interfaces.TipoDeAtaque;
-import interfaces.TipoDeMagia;
-
-import java.util.Random;
+import interfaces.AcaoDeAtaque;
+import interfaces.AcaoDeMagia;
 
 public abstract class Personagem {
     protected String nome;
+    protected Arma arma;
+    protected Magia magia;
     protected int pontosDeVida;
     protected int classeDeArmadura;
+    protected int bonusAtaque;
     protected Tendencia tendencia;
-    //protected TipoDeClasse tipoDeClasse;
-    //protected TipoDeRaca tipoDeRaca;
-    protected TipoDeAtaque tipoDeAtaque;
-    protected TipoDeMagia tipoDeMagia;
-    protected Random random;
 
+    protected AcaoDeAtaque acaoDeAtaque;
+    protected AcaoDeMagia acaoDeMagia;
 
     public Personagem() {
-        //        this.tipoDeClasse = null;
-        //        this.tipoDeRaca = null;
-        this.tipoDeAtaque = null;
-        random = new Random();
-    }
-/*
-
-    public void setTipoDeClasse(TipoDeClasse tipoDeClasse) {
-        this.tipoDeClasse = tipoDeClasse;
+        this.acaoDeAtaque = null;
     }
 
-    public void setTipoDeRaca(TipoDeRaca tipoDeRaca) {
-        this.tipoDeRaca = tipoDeRaca;
+    public void setTipoDeAtaque(AcaoDeAtaque acaoDeAtaque) {
+        this.acaoDeAtaque = acaoDeAtaque;
     }
-*/
-
-    public void setTipoDeAtaque(TipoDeAtaque tipoDeAtaque) {
-        this.tipoDeAtaque = tipoDeAtaque;
+    public void setTipoDeMagia(AcaoDeMagia acaoDeMagia) {
+        this.acaoDeMagia = acaoDeMagia;
     }
 
     public void executarAtaque(Personagem alvo){
-        if(!(alvo.getTendencia().equals(this.tendencia))){
-            if(this.nome.equals("Gandalf")){
-                if(this.tipoDeMagia != null){
-                    int valorAtaque = random.nextInt(20)+1;
 
-                    System.out.println(this + " atacando " + alvo + "\nJogada de Ataque: " + valorAtaque);
-
-                    if (valorAtaque >= alvo.classeDeArmadura) {
-
-                        this.tipoDeMagia.lancarMagia(this, alvo);
-                    }
-                }
-            }
-            if(this.tipoDeAtaque != null){
-                int valorAtaque = random.nextInt(20)+1;
-
-                if (valorAtaque >= alvo.classeDeArmadura) {
-
-                    System.out.println(this + " atacando " + alvo + "\nJogada de Ataque: " + valorAtaque);
-
-                    this.tipoDeAtaque.atacar(this, alvo);
-                }
-            }
-        }
-
+        if(this.acaoDeAtaque != null) this.acaoDeAtaque.atacar(this, alvo);
     }
 
-    public void setTipoDeMagia(TipoDeMagia tipoDeMagia) {
-        this.tipoDeMagia = tipoDeMagia;
+    public void executarMagia(Personagem alvo){
+
+        if(this.acaoDeMagia != null) this.acaoDeMagia.conjurar(this, alvo);
     }
 
-    public void verificarTendencia(Personagem alvo){
-        if(!(alvo.getTendencia().equals(this.tendencia))){
-            System.out.println(!(alvo.getTendencia().equals(this.tendencia)));
-        }
-    }
     public void receberDano(int dano){
-        this.pontosDeVida -= dano;
+
+        if(dano >= 0){
+            this.pontosDeVida -= dano;
+        }
     }
 
-    public int getPontosDeVida() {
-        return pontosDeVida;
+    public Arma getArma() {
+        return arma;
     }
 
-    public String toString(){
-
-        return this.nome;
-    }
-
-    public Tendencia getTendencia() {
-        return tendencia;
+    public Magia getMagia() {
+        return magia;
     }
 
     public String getNome() {
         return nome;
     }
 
+    public int getPontosDeVida() {
+        return pontosDeVida;
+    }
+
     public int getClasseDeArmadura() {
         return classeDeArmadura;
+    }
+
+    public int getBonusAtaque() {
+        return bonusAtaque;
+    }
+
+    public AcaoDeAtaque getTipoDeAtaque() {
+        return acaoDeAtaque;
+    }
+
+    public Tendencia getTendencia() {
+        return tendencia;
+    }
+
+    public void receberPvs(int pontosDeVida) {
+        this.pontosDeVida += pontosDeVida;
     }
 }

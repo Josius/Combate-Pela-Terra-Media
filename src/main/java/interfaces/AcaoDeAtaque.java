@@ -2,6 +2,6 @@ package interfaces;
 
 import personagens.Personagem;
 
-public interface TipoDeAtaque {
+public interface AcaoDeAtaque {
     void atacar(Personagem ativo, Personagem passivo);
 }
